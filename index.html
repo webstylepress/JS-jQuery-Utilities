@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>WebStylePress</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+      .wrapper {
+        position: relative;
+        font-weight: bold;
+      }
+      .inner {
+        background-color: #fff;
+        border: 1px solid #666;
+        padding: 10px 20px;
+        cursor: pointer;
+
+        position: relative;
+        z-index: 999;
+      }
+      .list {
+        background-color: #eee; 
+        border: 1px solid #999; 
+        border-top: 0;
+        top: 46px;
+        left: 0;
+        width: 100%;
+        display: none;
+        position: absolute;
+        z-index: 999;
+      }
+      .list a {
+        display: block;
+        width: 100%;
+        padding: 10px 20px;
+        border-bottom: 1px solid #999;
+        color: #000;
+      }
+      .list a:hover {
+        text-decoration: none;
+        background-color: #ccc;
+      }
+      .list a:last-child {
+        border: none;
+      }
+      .ghost-backdrop {
+        left: 0; 
+        right: 0; 
+        top: 0; 
+        bottom: 0; 
+        position: fixed; 
+        z-index: 998; 
+        /* background-color: #ccc; */
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+
+    <br /><br />
+
+    <div class="container">
+      <div class="wrapper">
+        <div class="inner">Please Select</div>
+        <div class="list">
+          <a href="http://www.webstylepress.com">- WebStylePress</a>
+          <a href="http://www.youtube.com/webstylepress">- YouTube</a>
+          <a href="http://www.facebook.com/webstylepress">- FaceBook</a>
+        </div>
+        <div class="ghost-backdrop"></div>
+      </div>
+      <p>Detect Click Outside Element - WebStylePress</p>
+    </div>
+
+    <br /><br />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $('.inner').click(function(){
+        $('.list').stop().slideToggle();
+        $('.ghost-backdrop').toggle();
+      });
+      $('.ghost-backdrop').on('click, mouseenter',function(){
+        $('.list').slideUp();
+        $('.ghost-backdrop').hide();
+      });
+    </script>
+  </body>
+</html>
